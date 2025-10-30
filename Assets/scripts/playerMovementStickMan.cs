@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class playerMovement : MonoBehaviour
+public class playerMovementStickMan : MonoBehaviour
 {
 
     private Vector2 movement;
@@ -21,18 +21,9 @@ public class playerMovement : MonoBehaviour
     {
         movement = value.Get<Vector2>();
 
-        if (movement.x != 0 || movement.y != 0)
-        {
-            myAnimator.SetFloat("x", movement.x);
-            myAnimator.SetFloat("y", movement.y);
-            myAnimator.SetBool("isWalking", true);
+        myAnimator.SetFloat("x", movement.x);
+        myAnimator.SetFloat("y", movement.y);
 
-
-        }
-        else
-        {
-            myAnimator.SetBool("isWalking", false);
-        }
     }
 
     private void FixedUpdate()
